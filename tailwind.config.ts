@@ -68,6 +68,12 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontSize: {
+        title: "40px",
+        taskTitle: "20px",
+        buttonText: "14px",
+        inputLabel: "12px",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
