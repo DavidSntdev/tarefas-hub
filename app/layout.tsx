@@ -14,10 +14,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
-        rel="stylesheet"
-      ></link>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+          rel="stylesheet"
+        ></link>
+      </head>
       <body className={`antialiased bg-cinzaClaro`}>{children}</body>
     </html>
   );

@@ -1,16 +1,12 @@
-import { siteConfig } from "@/app/config/siteConfig";
 import ConteudoLayout from "../layouts/conteudoLayout";
-import TituloPrincipal from "../common/tituloPrincipal";
+import Header from "./header/header";
+import AddNewTask from "./buttonstask/addnewtask";
 
 export default function Conteudo() {
   return (
-    <ConteudoLayout className="p-14">
-      <TituloPrincipal
-        titulo={siteConfig.header.titulo}
-        subtitulo={siteConfig.header.subtitulo}
-        icone1={siteConfig.header.icone1}
-        icone2={siteConfig.header.icone2}
-      />
+    <ConteudoLayout className="p-14 flex flex-col gap-8">
+      <Header />
+      <AddNewTask />
     </ConteudoLayout>
   );
 }
