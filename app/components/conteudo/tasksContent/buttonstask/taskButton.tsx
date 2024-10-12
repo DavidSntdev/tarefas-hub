@@ -20,7 +20,7 @@ export default function TaskButton(props: TaskButtonProps) {
         </div>
         <div
           className={` ${
-            props.descricao ? "py-2 w-80" : ""
+            props.descricao ? "py-2 max-w-80" : ""
           } flex flex-col items-start gap-1`}
         >
           {props.titulo}
