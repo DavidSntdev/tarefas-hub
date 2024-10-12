@@ -8,7 +8,7 @@ export const siteConfig = {
   task: {
     add: {
       text: "Add new task",
-      icon: "/icons/Add_round_duotone.svg",
+      icon: "/icons/iconAdicionar.svg",
     },
   },
 };
