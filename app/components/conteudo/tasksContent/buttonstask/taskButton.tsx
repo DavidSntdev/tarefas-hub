@@ -1,5 +1,6 @@
 import { verTipo } from "@/app/utils/verTipo";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 interface TaskButtonProps {
   emoji: string;
@@ -12,30 +13,32 @@ export default function TaskButton(props: TaskButtonProps) {
   const { bgCor, bgHover, icone, bgIcone, hoverIcone } = verTipo(props.tipo);
 
   const modoDiv = props.descricao ? "items-start" : "items-center";
-  const modoText = props.descricao && "py-2 max-w-80";
+  const modoText = props.descricao && "py-2 max-w-80 break-words";
 
   return (
-    <button
-      className={`w-full rounded-2xl items-start p-4 ${bgCor} ${bgHover} justify-between text-base text-[#030616] flex items-center`}
+    <Button
+      className={`w-full rounded-2xl h-auto items-start p-4 ${bgCor} ${bgHover} justify-between text-base text-[#030616] flex items-center`}
     >
-      <div className={`flex ${modoDiv} gap-4 font-semibold text-xl `}>
+      <div
+        className={`flex ${modoDiv} gap-4 font-semibold text-lg sm:text-xl `}
+      >
         <div className="bg-white p-2 rounded-xl hover:bg-white/90">
           <span className="text-lg">{props.emoji}</span>
         </div>
         <div className={`${modoText} flex flex-col items-start gap-1`}>
           {props.titulo}
           {props.descricao && (
-            <span className="font-normal text-start text-base">
+            <span className="font-normal text-start text-sm sm:text-base">
               {props.descricao}
             </span>
           )}
         </div>
       </div>
       {icone && (
-        <div className={`${bgIcone} ${hoverIcone} p-3 rounded-xl `}>
+        <div className={`${bgIcone} ${hoverIcone} p-2 rounded-xl `}>
           <Image src={icone} alt={props.tipo} width={20} height={20} />
         </div>
       )}
-    </button>
+    </Button>
   );
 }

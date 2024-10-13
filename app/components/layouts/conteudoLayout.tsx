@@ -5,7 +5,7 @@ interface LayoutProps {
 
 export default function ConteudoLayout({ children, className }: LayoutProps) {
   return (
-    <main className={`container mx-auto max-w-7xl flex-grow ${className}`}>
+    <main className={`container mx-auto max-w-[640px] flex-grow ${className}`}>
       {children}
     </main>
   );

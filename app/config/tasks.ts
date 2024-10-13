@@ -26,7 +26,7 @@ export const tasks: Record<string, Task> = {
   },
   task4: {
     title: "Task To Do",
-    description: "Work on a Challenge on devChallenges.io learn Typescript.",
+    description: "Work on a Challenge on devChallenges.io, learn Typescript.",
     tipo: "nenhum",
     emoji: "📚",
   },
