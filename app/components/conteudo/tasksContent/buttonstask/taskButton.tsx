@@ -1,3 +1,4 @@
+import { verTipo } from "@/app/utils/verTipo";
 import Image from "next/image";
 
 interface TaskButtonProps {
@@ -8,31 +9,7 @@ interface TaskButtonProps {
 }
 
 export default function TaskButton(props: TaskButtonProps) {
-  let bgCor = "bg-cinza";
-  let bgHover = "hover:bg-cinza/70";
-  let icone = "",
-    bgIcone = "",
-    hoverIcone = "";
-
-  if (props.tipo === "pendente") {
-    bgCor = "bg-amarelo";
-    bgHover = "hover:bg-amarelo/60";
-    icone = "/icons/iconPendente.svg";
-    bgIcone = "bg-laranja";
-    hoverIcone = "hover:bg-laranja/60";
-  } else if (props.tipo === "incompleto") {
-    bgCor = "bg-vermelhoClaro";
-    bgHover = "hover:bg-vermelhoClaro/60";
-    icone = "/icons/iconIncompleto.svg";
-    bgIcone = "bg-vermelho";
-    hoverIcone = "hover:bg-vermelho/60";
-  } else if (props.tipo === "concluido") {
-    bgCor = "bg-verdeClaro";
-    bgHover = "hover:bg-verdeClaro/60";
-    icone = "/icons/iconConcluido.svg";
-    bgIcone = "bg-verde";
-    hoverIcone = "hover:bg-verde/60";
-  }
+  const { bgCor, bgHover, icone, bgIcone, hoverIcone } = verTipo(props.tipo);
 
   const modoDiv = props.descricao ? "items-start" : "items-center";
   const modoText = props.descricao && "py-2 max-w-80";
