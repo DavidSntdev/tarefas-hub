@@ -7,8 +7,10 @@ export default function Conteudo() {
   return (
     <ConteudoLayout className="p-10 flex flex-col gap-8">
       <Header />
-      <Tasks />
-      <AddNewTask />
+      <div className="flex flex-col gap-5">
+        <Tasks />
+        <AddNewTask />
+      </div>
     </ConteudoLayout>
   );
 }

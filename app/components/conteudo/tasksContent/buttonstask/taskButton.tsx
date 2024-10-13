@@ -39,7 +39,7 @@ export default function TaskButton(props: TaskButtonProps) {
 
   return (
     <button
-      className={`w-full rounded-2xl items-start p-3 ${bgCor} ${bgHover} justify-between text-base text-[#030616]  flex`}
+      className={`w-full rounded-2xl items-start p-4 ${bgCor} ${bgHover} justify-between text-base text-[#030616] flex items-center`}
     >
       <div className={`flex ${modoDiv} gap-4 font-semibold text-xl `}>
         <div className="bg-white p-2 rounded-xl hover:bg-white/90">
@@ -55,7 +55,7 @@ export default function TaskButton(props: TaskButtonProps) {
         </div>
       </div>
       {icone && (
-        <div className={`${bgIcone} ${hoverIcone} p-2 rounded-xl `}>
+        <div className={`${bgIcone} ${hoverIcone} p-3 rounded-xl `}>
           <Image src={icone} alt={props.tipo} width={20} height={20} />
         </div>
       )}
