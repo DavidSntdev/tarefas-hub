@@ -1,7 +1,7 @@
 interface Task {
   title: string;
   description: string;
-  tipo: "em-andamento" | "concluido" | "incompleto" | "nenhum";
+  tipo: "pendente" | "concluido" | "incompleto" | "nenhum";
   emoji: string;
 }
 
@@ -9,7 +9,7 @@ export const tasks: Record<string, Task> = {
   task1: {
     title: "Task in Progress",
     description: "",
-    tipo: "em-andamento",
+    tipo: "pendente",
     emoji: "⏰",
   },
   task2: {
