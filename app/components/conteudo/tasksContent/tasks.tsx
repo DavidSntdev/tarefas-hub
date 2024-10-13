@@ -5,7 +5,7 @@ export default function Tasks() {
   return Object.entries(tasks).map(([key, task]) => (
     <TaskButton
       key={key}
-      color={task.color}
+      tipo={task.tipo}
       titulo={task.title}
       emoji={task.emoji}
       descricao={task.description}
