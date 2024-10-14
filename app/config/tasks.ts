@@ -1,31 +1,30 @@
-interface Task {
-  title: string;
-  description: string;
-  tipo: "pendente" | "concluido" | "incompleto" | "nenhum";
-  emoji: string;
-}
+import { Task } from "../interfaces/task";
 
-export const tasks: Record<string, Task> = {
+export const tasksMap: { [key: string]: Task } = {
   task1: {
-    title: "Task in Progress",
+    id: 1,
+    titulo: "Task in Progress",
     description: "",
     tipo: "pendente",
     emoji: "⏰",
   },
   task2: {
-    title: "Task Completed",
+    id: 2,
+    titulo: "Task Completed",
     description: "",
     tipo: "concluido",
     emoji: "🏋️‍♂️",
   },
   task3: {
-    title: "Task Won't Do",
+    id: 3,
+    titulo: "Task Won't Do",
     description: "",
     tipo: "incompleto",
     emoji: "☕",
   },
   task4: {
-    title: "Task To Do",
+    id: 4,
+    titulo: "Task To Do",
     description: "Work on a Challenge on devChallenges.io, learn Typescript.",
     tipo: "nenhum",
     emoji: "📚",
