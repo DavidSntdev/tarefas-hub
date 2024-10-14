@@ -24,14 +24,14 @@ export default function ButtonTipos(props: ButtonTiposProps) {
       onClick={() => props.setSelected(props.tipo)}
     >
       <div
-        className={`flex gap-4 text-lg h-full sm:text-xl  items-center text-black font-normal`}
+        className={`flex gap-4 h-full sm:text-xl  items-center text-black font-normal`}
       >
         <div
           className={`p-3 ${bgIcone} ${hover} h-full flex items-center rounded-xl `}
         >
           <Image src={icone} alt={props.text} width={20} height={20} />
         </div>
-        {props.text}
+        <span className="text-base font-medium">{props.text}</span>
       </div>
       {selecionado && (
         <div className="bg-azul p-1 rounded-full hover:bg-azul/90">
