@@ -16,7 +16,7 @@ export default function Conteudo() {
         <Tasks onClick={() => setTaskConfig(true)} />
         <AddNewTask onClick={() => setTaskConfig(true)} />
       </div>
-      {TaskConfig && <TasksConfig />}
+      {TaskConfig && <TasksConfig cancelar={() => setTaskConfig(false)} />}
     </ConteudoLayout>
   );
 }
