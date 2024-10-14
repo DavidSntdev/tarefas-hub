@@ -1,9 +1,9 @@
-import LabelTasks from "./components/labelTasks";
 import InputIcons from "./inputs/inputIcons";
 import HeaderTasks from "./header/headerTasks";
 import InputName from "./inputs/inputName";
 import InputDescription from "./inputs/inputDescription";
 import FooterTasks from "./footer/footerTasks";
+import InputTipos from "./inputs/inputTipos";
 
 interface TasksConfigProps {
   cancelar: () => void;
@@ -18,9 +18,7 @@ export default function TasksConfig(props: TasksConfigProps) {
           <InputName />
           <InputDescription />
           <InputIcons />
-          <div className="grid w-full items-center gap-1.5">
-            <LabelTasks text="Status" htmlFor="status" />
-          </div>
+          <InputTipos />
         </div>
         <FooterTasks />
       </div>

@@ -28,7 +28,7 @@ export default function FooterTasks() {
       >
         Save
         <Image
-          src="/icons/Done_round.svg"
+          src="/icons/iconDone.svg"
           className=" rounded-full size-5"
           alt="icons"
           width={20}

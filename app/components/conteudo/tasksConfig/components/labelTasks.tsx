@@ -8,7 +8,7 @@ interface LabelTasksProps {
 export default function LabelTasks(props: LabelTasksProps) {
   return (
     <Label htmlFor={props.htmlFor} className="text-cinzaEscuro">
-      {props.text}{" "}
+      {props.text}
     </Label>
   );
 }

@@ -41,7 +41,9 @@ export default function TaskButton(props: TaskButtonProps) {
         </div>
       </div>
       {icone && (
-        <div className={`${bgIcone} ${hoverIcone} p-3 rounded-xl `}>
+        <div
+          className={`${bgIcone} ${hoverIcone} flex items-center p-3 rounded-xl `}
+        >
           <Image src={icone} alt={props.tipo} width={20} height={20} />
         </div>
       )}
