@@ -1,6 +1,7 @@
-import { verTipo } from "@/app/utils/verTipo";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { verTipo } from "@/app/utils/verTipo";
+import { corHover } from "@/app/utils/corHover";
 
 interface TaskButtonProps {
   emoji: string;
@@ -10,7 +11,10 @@ interface TaskButtonProps {
 }
 
 export default function TaskButton(props: TaskButtonProps) {
-  const { bgCor, bgHover, icone, bgIcone, hoverIcone } = verTipo(props.tipo);
+  const { bgCor, icone, bgIcone } = verTipo(props.tipo);
+
+  const bgHover = corHover(bgCor);
+  const hoverIcone = corHover(bgIcone);
 
   const modoDiv = props.descricao ? "items-start" : "items-center";
   const modoText = props.descricao && "py-2 max-w-80 break-words";
