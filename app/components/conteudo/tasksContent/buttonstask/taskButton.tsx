@@ -8,6 +8,7 @@ interface TaskButtonProps {
   titulo: string;
   descricao?: string;
   tipo: "pendente" | "incompleto" | "concluido" | "nenhum";
+  onClick: () => void;
 }
 
 export default function TaskButton(props: TaskButtonProps) {
@@ -22,6 +23,7 @@ export default function TaskButton(props: TaskButtonProps) {
   return (
     <Button
       className={`w-full rounded-2xl h-auto items-start p-4 ${bgCor} ${bgHover} justify-between text-base text-[#030616] flex items-center`}
+      onClick={props.onClick}
     >
       <div
         className={`flex ${modoDiv} gap-4 font-semibold text-lg sm:text-xl `}

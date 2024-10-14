@@ -1,7 +1,11 @@
 import { tasks } from "@/app/config/tasks";
 import TaskButton from "./buttonstask/taskButton";
 
-export default function Tasks() {
+interface TasksProps {
+  onClick: () => void;
+}
+
+export default function Tasks(props: TasksProps) {
   return Object.entries(tasks).map(([key, task]) => (
     <TaskButton
       key={key}
@@ -9,6 +13,7 @@ export default function Tasks() {
       titulo={task.title}
       emoji={task.emoji}
       descricao={task.description}
+      onClick={() => props.onClick()}
     />
   ));
 }
