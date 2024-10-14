@@ -3,6 +3,7 @@ import InputIcons from "./inputs/inputIcons";
 import HeaderTasks from "./header/headerTasks";
 import InputName from "./inputs/inputName";
 import InputDescription from "./inputs/inputDescription";
+import FooterTasks from "./footer/footerTasks";
 
 interface TasksConfigProps {
   cancelar: () => void;
@@ -21,10 +22,7 @@ export default function TasksConfig(props: TasksConfigProps) {
             <LabelTasks text="Status" htmlFor="status" />
           </div>
         </div>
-        <div className="w-full flex gap-3 justify-end items-center">
-          <button>Delete</button>
-          <button>Save</button>
-        </div>
+        <FooterTasks />
       </div>
     </div>
   );
