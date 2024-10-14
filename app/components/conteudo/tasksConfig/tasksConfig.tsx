@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InputIcons from "./inputs/inputIcons";
 import HeaderTasks from "./header/headerTasks";
 import InputName from "./inputs/inputName";
@@ -11,25 +11,46 @@ import { Task } from "@/app/interfaces/task";
 interface TasksConfigProps {
   cancelar: () => void;
   addNewTask: (task: Task) => void;
+  updateTask: (task: Task) => void;
   onDeleteTask: (id: number) => void;
   selectedTask: Task | null;
   tasks: Task[];
 }
 
 export default function TasksConfig(props: TasksConfigProps) {
-  const [newTask, setNewTask] = useState<Task>(
-    props.selectedTask || {
-      id: props.tasks.length + 1,
-      titulo: "",
-      description: "",
-      emoji: "",
-      tipo: "nenhum",
-    }
-  );
+  const [newTask, setNewTask] = useState<Task>({
+    id: props.selectedTask ? props.selectedTask.id : props.tasks.length + 1,
+    titulo: props.selectedTask?.titulo || "",
+    description: props.selectedTask?.description || "",
+    emoji: props.selectedTask?.emoji || "",
+    tipo: props.selectedTask?.tipo || "nenhum",
+  });
 
-  const handleAddTask = () => {
+  useEffect(() => {
+    if (props.selectedTask) {
+      setNewTask(props.selectedTask);
+    } else {
+      setNewTask({
+        id: props.tasks.length + 1,
+        titulo: "",
+        description: "",
+        emoji: "",
+        tipo: "nenhum",
+      });
+    }
+  }, [props.selectedTask, props.tasks.length]);
+
+  const handleSaveTask = () => {
     if (newTask.titulo && newTask.emoji) {
-      props.addNewTask(newTask);
+      const taskToSave = { ...newTask };
+
+      if (props.selectedTask) {
+        console.log("Updating task:", taskToSave);
+        props.updateTask(taskToSave); 
+      } else {
+        console.log("Adding new task:", taskToSave);
+        props.addNewTask(taskToSave);
+      }
       props.cancelar();
     } else {
       alert("Por favor, preencha todos os campos obrigatórios.");
@@ -65,7 +86,7 @@ export default function TasksConfig(props: TasksConfigProps) {
             onChange={(tipo) => setNewTask({ ...newTask, tipo })}
           />
         </div>
-        <FooterTasks onSave={handleAddTask} onDelete={handleDeleteTask} />
+        <FooterTasks onSave={handleSaveTask} onDelete={handleDeleteTask} />
       </div>
     </div>
   );

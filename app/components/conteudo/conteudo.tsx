@@ -6,12 +6,16 @@ import AddNewTask from "./tasksContent/buttonstask/addnewtask";
 import Tasks from "./tasksContent/tasks";
 import TasksConfig from "./tasksConfig/tasksConfig";
 import { Task } from "@/app/interfaces/task";
-import { getTasks, saveTask, deleteTask } from "@/app/utils/tasksLocalStorage";
-import { tasksMap } from "@/app/config/tasks";
+import {
+  getTasks,
+  saveTask,
+  deleteTask,
+  updateTask,
+} from "@/app/utils/tasksLocalStorage";
 
 export default function Conteudo() {
   const [taskConfig, setTaskConfig] = useState(false);
-  const [tasks, setTasks] = useState<Task[]>(Object.values(tasksMap));
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
 
   useEffect(() => {
@@ -31,6 +35,13 @@ export default function Conteudo() {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
   };
 
+  const handleUpdateTask = (updatedTask: Task) => {
+    updateTask(updatedTask);
+    setTasks((prevTasks) =>
+      prevTasks.map((task) => (task.id === updatedTask.id ? updatedTask : task))
+    );
+  };
+
   return (
     <ConteudoLayout className="px-5 py-10 sm:p-10 flex flex-col items-center sm:items-start gap-8">
       <Header />
@@ -42,12 +53,18 @@ export default function Conteudo() {
             setTaskConfig(true);
           }}
         />
-        <AddNewTask onClick={() => setTaskConfig(true)} />
+        <AddNewTask
+          onClick={() => {
+            setSelectedTask(null);
+            setTaskConfig(true);
+          }}
+        />
       </div>
       {taskConfig && (
         <TasksConfig
           cancelar={() => setTaskConfig(false)}
           addNewTask={addNewTask}
+          updateTask={handleUpdateTask}
           onDeleteTask={handleDeleteTask}
           selectedTask={selectedTask}
           tasks={tasks}
