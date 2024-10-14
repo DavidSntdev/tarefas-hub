@@ -4,10 +4,12 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 interface ButtonTiposProps {
-  tipo: string;
+  tipo: "pendente" | "incompleto" | "concluido" | "nenhum";
   text: string;
   selected: string;
-  setSelected: (value: string) => void;
+  setSelected: (
+    value: "pendente" | "incompleto" | "concluido" | "nenhum"
+  ) => void;
 }
 
 export default function ButtonTipos(props: ButtonTiposProps) {

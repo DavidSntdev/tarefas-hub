@@ -1,19 +1,20 @@
-import { tasks } from "@/app/config/tasks";
 import TaskButton from "./buttonstask/taskButton";
+import { Task } from "@/app/interfaces/task";
 
 interface TasksProps {
-  onClick: () => void;
+  onClick: (task: Task) => void;
+  tasks: Task[];
 }
 
 export default function Tasks(props: TasksProps) {
-  return Object.entries(tasks).map(([key, task]) => (
+  return props.tasks.map((task) => (
     <TaskButton
-      key={key}
+      key={task.id}
       tipo={task.tipo}
-      titulo={task.title}
+      titulo={task.titulo}
       emoji={task.emoji}
       descricao={task.description}
-      onClick={() => props.onClick()}
+      onClick={() => props.onClick(task)}
     />
   ));
 }
