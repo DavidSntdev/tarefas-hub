@@ -13,12 +13,13 @@ interface TasksConfigProps {
   addNewTask: (task: Task) => void;
   onDeleteTask: (id: number) => void;
   selectedTask: Task | null;
+  tasks: Task[];
 }
 
 export default function TasksConfig(props: TasksConfigProps) {
   const [newTask, setNewTask] = useState<Task>(
     props.selectedTask || {
-      id: Date.now(),
+      id: props.tasks.length + 1,
       titulo: "",
       description: "",
       emoji: "",
@@ -27,7 +28,7 @@ export default function TasksConfig(props: TasksConfigProps) {
   );
 
   const handleAddTask = () => {
-    if (newTask.titulo && newTask.description) {
+    if (newTask.titulo && newTask.description && newTask.emoji) {
       props.addNewTask(newTask);
       props.cancelar();
     } else {

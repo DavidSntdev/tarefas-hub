@@ -47,6 +47,7 @@ export default function Conteudo() {
           addNewTask={addNewTask}
           onDeleteTask={handleDeleteTask}
           selectedTask={selectedTask}
+          tasks={tasks}
         />
       )}
     </ConteudoLayout>
