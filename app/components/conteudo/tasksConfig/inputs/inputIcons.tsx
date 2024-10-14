@@ -2,6 +2,7 @@
 import { useState } from "react";
 import LabelTasks from "../components/labelTasks";
 import IconsOptions from "../components/iconsOptions";
+import icons from "@/app/config/iconsConfig";
 
 export default function InputIcons() {
   const [selectedOption, setSelectedOption] = useState("icon1");
@@ -10,36 +11,14 @@ export default function InputIcons() {
     <div className="grid w-full items-center gap-1.5">
       <LabelTasks text="Icon" htmlFor="icon" />
       <div className="flex gap-3">
-        <IconsOptions
-          selectedOption={selectedOption}
-          setSelectedOption={setSelectedOption}
-          text="⏰"
-          id="icon1"
-        />
-        <IconsOptions
-          selectedOption={selectedOption}
-          setSelectedOption={setSelectedOption}
-          text="⏰"
-          id="icon2"
-        />
-        <IconsOptions
-          selectedOption={selectedOption}
-          setSelectedOption={setSelectedOption}
-          text="⏰"
-          id="icon3"
-        />
-        <IconsOptions
-          selectedOption={selectedOption}
-          setSelectedOption={setSelectedOption}
-          text="⏰"
-          id="icon4"
-        />
-        <IconsOptions
-          selectedOption={selectedOption}
-          setSelectedOption={setSelectedOption}
-          text="⏰"
-          id="icon5"
-        />
+        {Object.entries(icons).map(([key, icon]) => (
+          <IconsOptions
+            key={key}
+            selectedOption={selectedOption}
+            setSelectedOption={setSelectedOption}
+            {...icon}
+          />
+        ))}
       </div>
     </div>
   );
