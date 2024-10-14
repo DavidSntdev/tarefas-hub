@@ -7,15 +7,18 @@ import Tasks from "./tasksContent/tasks";
 import TasksConfig from "./tasksConfig/tasksConfig";
 import { Task } from "@/app/interfaces/task";
 import { getTasks, saveTask, deleteTask } from "@/app/utils/tasksLocalStorage";
+import { tasksMap } from "@/app/config/tasks";
 
 export default function Conteudo() {
   const [taskConfig, setTaskConfig] = useState(false);
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>(Object.values(tasksMap));
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
 
   useEffect(() => {
     const storedTasks = getTasks();
-    setTasks(storedTasks);
+    if (storedTasks.length > 0) {
+      setTasks(storedTasks);
+    }
   }, []);
 
   const addNewTask = (newTask: Task) => {

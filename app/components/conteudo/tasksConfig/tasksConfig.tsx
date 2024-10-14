@@ -28,7 +28,7 @@ export default function TasksConfig(props: TasksConfigProps) {
   );
 
   const handleAddTask = () => {
-    if (newTask.titulo && newTask.description && newTask.emoji) {
+    if (newTask.titulo && newTask.emoji) {
       props.addNewTask(newTask);
       props.cancelar();
     } else {
