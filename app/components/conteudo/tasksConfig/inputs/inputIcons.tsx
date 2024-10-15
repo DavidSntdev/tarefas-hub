@@ -3,6 +3,7 @@ import IconsOptions from "../components/iconsOptions";
 import icons from "@/app/config/iconsConfig";
 import { InputTaskProps } from "./inputName";
 import { inputConfig } from "@/app/config/inputConfig";
+import IconsPers from "../components/iconPers";
 
 export default function InputIcons(props: InputTaskProps) {
   return (
@@ -17,6 +18,10 @@ export default function InputIcons(props: InputTaskProps) {
             emoji={icon.emoji}
           />
         ))}
+        <IconsPers
+          selectedOption={props.value}
+          setSelectedOption={props.onChange}
+        />
       </div>
     </div>
   );
