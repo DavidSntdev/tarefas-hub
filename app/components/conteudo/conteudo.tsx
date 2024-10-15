@@ -13,7 +13,7 @@ import {
   updateTask,
 } from "@/app/utils/tasksLocalStorage";
 import { tasksMap } from "@/app/config/tasks";
-
+import { motion, AnimatePresence } from "framer-motion";
 export default function Conteudo() {
   const [taskConfig, setTaskConfig] = useState(false);
   const [tasks, setTasks] = useState<Task[]>(Object.values(tasksMap));
@@ -61,16 +61,25 @@ export default function Conteudo() {
           }}
         />
       </div>
-      {taskConfig && (
-        <TasksConfig
-          cancelar={() => setTaskConfig(false)}
-          addNewTask={addNewTask}
-          updateTask={handleUpdateTask}
-          onDeleteTask={handleDeleteTask}
-          selectedTask={selectedTask}
-          tasks={tasks}
-        />
-      )}
+      <AnimatePresence>
+        {taskConfig && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <TasksConfig
+              cancelar={() => setTaskConfig(false)}
+              addNewTask={addNewTask}
+              updateTask={handleUpdateTask}
+              onDeleteTask={handleDeleteTask}
+              selectedTask={selectedTask}
+              tasks={tasks}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </ConteudoLayout>
   );
 }
