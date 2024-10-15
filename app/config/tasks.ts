@@ -3,29 +3,30 @@ import { Task } from "../interfaces/task";
 export const tasksMap: { [key: string]: Task } = {
   task1: {
     id: 1,
-    titulo: "Task in Progress",
+    titulo: "Exemplo 1",
     description: "",
     tipo: "pendente",
     emoji: "⏰",
   },
   task2: {
     id: 2,
-    titulo: "Task Completed",
+    titulo: "Exemplo 2",
     description: "",
     tipo: "concluido",
     emoji: "🏋️‍♂️",
   },
   task3: {
     id: 3,
-    titulo: "Task Won't Do",
+    titulo: "Exemplo 3",
     description: "",
     tipo: "incompleto",
     emoji: "☕",
   },
   task4: {
     id: 4,
-    titulo: "Task To Do",
-    description: "Work on a Challenge on devChallenges.io, learn Typescript.",
+    titulo: "Exemplo 4",
+    description:
+      "Não edite essas tarefas já adicionadas, são somente exemplos, quando você adicionar uma tarefa nova elas sairão",
     tipo: "nenhum",
     emoji: "📚",
   },

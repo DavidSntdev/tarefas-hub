@@ -1,15 +1,15 @@
 const tiposConfig = {
-  completo: {
+  concluido: {
     tipo: "concluido",
-    text: "Completed",
+    text: "Concluido",
   },
   pendente: {
     tipo: "pendente",
-    text: "In progress",
+    text: "Em progresso",
   },
   incompleto: {
     tipo: "incompleto",
-    text: "Won't do",
+    text: "Não fez",
   },
 };
 

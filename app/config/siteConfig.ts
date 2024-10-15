@@ -1,13 +1,13 @@
 export const siteConfig = {
   header: {
     icone1: "/icons/Logo.svg",
-    titulo: "My Task Board",
-    subtitulo: "Tasks to keep organised",
+    titulo: "Tarefas Hub",
+    subtitulo: "Organize suas tarefas diarias",
     icone2: "/icons/Edit_duotone.svg",
   },
   task: {
     add: {
-      text: "Add new task",
+      text: "Adicionar tarefa",
       icon: "/icons/iconAdicionar.svg",
     },
   },
