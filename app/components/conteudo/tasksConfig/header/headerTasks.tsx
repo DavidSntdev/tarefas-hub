@@ -8,7 +8,7 @@ interface HeaderTasksProps {
 export default function HeaderTasks(props: HeaderTasksProps) {
   return (
     <div className="flex justify-between">
-      <h1 className="font-medium text-xl text-black">Task details</h1>
+      <h1 className="font-medium text-xl text-black">Detalhes das tarefas</h1>
       <Button
         variant="outline"
         size="icon"

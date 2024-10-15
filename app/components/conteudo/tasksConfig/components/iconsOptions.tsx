@@ -8,7 +8,8 @@ interface IconsOptionsProps {
 }
 
 export default function IconsOptions(props: IconsOptionsProps) {
-  const bgColor = props.selectedOption === props.emoji ? "bg-amarelo" : "bg-cinza";
+  const bgColor =
+    props.selectedOption === props.emoji ? "bg-amarelo" : "bg-cinza";
   const bgHover = corHover(bgColor);
 
   return (
