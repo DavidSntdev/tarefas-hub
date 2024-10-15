@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="w-full flex items-center border-pretoTransparente justify-center py-3 border-t-[1px] bg-[#F3F4F6]">
+    <footer className="w-full flex items-center justify-center py-3  bg-[#F3F4F6]">
       <Link
         rel="_blank"
         className="flex items-center gap-1 text-current"
