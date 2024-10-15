@@ -12,10 +12,11 @@ import {
   deleteTask,
   updateTask,
 } from "@/app/utils/tasksLocalStorage";
+import { tasksMap } from "@/app/config/tasks";
 
 export default function Conteudo() {
   const [taskConfig, setTaskConfig] = useState(false);
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>(Object.values(tasksMap));
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
 
   useEffect(() => {

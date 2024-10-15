@@ -18,6 +18,7 @@ interface TasksConfigProps {
 }
 
 export default function TasksConfig(props: TasksConfigProps) {
+  const [erro, setErro] = useState("");
   const [newTask, setNewTask] = useState<Task>({
     id: props.selectedTask ? props.selectedTask.id : props.tasks.length + 1,
     titulo: props.selectedTask?.titulo || "",
@@ -41,20 +42,24 @@ export default function TasksConfig(props: TasksConfigProps) {
   }, [props.selectedTask, props.tasks.length]);
 
   const handleSaveTask = () => {
-    if (newTask.titulo && newTask.emoji) {
-      const taskToSave = { ...newTask };
-
-      if (props.selectedTask) {
-        console.log("Updating task:", taskToSave);
-        props.updateTask(taskToSave); 
-      } else {
-        console.log("Adding new task:", taskToSave);
-        props.addNewTask(taskToSave);
-      }
-      props.cancelar();
-    } else {
-      alert("Por favor, preencha todos os campos obrigatórios.");
+    if (!newTask.titulo || !newTask.emoji) {
+      const errors = [];
+      if (!newTask.titulo) errors.push("campo de título");
+      if (!newTask.emoji) errors.push("campo de emoji");
+      setErro(`Por favor, preencha o(s) ${errors.join(" e ")}.`);
+      return;
     }
+
+    const taskToSave = { ...newTask };
+
+    if (props.selectedTask) {
+      props.updateTask(taskToSave);
+    } else {
+      props.addNewTask(taskToSave);
+    }
+
+    props.cancelar();
+    setErro("");
   };
 
   const handleDeleteTask = () => {
@@ -66,7 +71,7 @@ export default function TasksConfig(props: TasksConfigProps) {
 
   return (
     <div className="fixed top-0 left-0 w-full h-full z-50 bg-pretoTransparente p-5">
-      <div className="w-full h-full bg-white rounded-xl p-5 flex flex-col justify-between">
+      <div className="max-w-4xl h-full bg-white rounded-xl p-5 flex flex-col justify-between ml-auto">
         <div className="flex flex-col w-full gap-5">
           <HeaderTasks cancelar={props.cancelar} />
           <InputName
@@ -85,6 +90,7 @@ export default function TasksConfig(props: TasksConfigProps) {
             tipo={newTask.tipo}
             onChange={(tipo) => setNewTask({ ...newTask, tipo })}
           />
+          {erro && <p className="text-red-500">{erro}</p>}
         </div>
         <FooterTasks onSave={handleSaveTask} onDelete={handleDeleteTask} />
       </div>
