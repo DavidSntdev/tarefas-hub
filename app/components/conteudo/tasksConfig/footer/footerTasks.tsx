@@ -21,7 +21,7 @@ export default function FooterTasks({ onSave, onDelete }: FooterTasksProps) {
         className={`rounded-full flex justify-center gap-2 ${bgDelete} ${hoverDelete} font-normal`}
         onClick={onDelete}
       >
-        Delete
+        Deletar
         <Image
           src="/icons/trash.svg"
           className="rounded-full size-5"
@@ -34,7 +34,7 @@ export default function FooterTasks({ onSave, onDelete }: FooterTasksProps) {
         className={`rounded-full flex justify-center gap-2 ${bgSave} ${hoverSave} font-normal`}
         onClick={onSave}
       >
-        Save
+        Salvar
         <Image
           src="/icons/iconDone.svg"
           className="rounded-full size-5"
